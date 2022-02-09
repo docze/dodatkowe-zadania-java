@@ -14,8 +14,6 @@ public class OldProduct {
 
     Integer counter;
 
-
-
     void decrementCounter() {
         if (price != null && price.signum() > 0) {
 
@@ -90,6 +88,4 @@ public class OldProduct {
         }
         return desc + " *** " + longDesc;
     }
-
-
 }
