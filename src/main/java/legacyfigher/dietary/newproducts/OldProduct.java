@@ -1,22 +1,29 @@
 package legacyfigher.dietary.newproducts;
 
+import org.apache.tomcat.util.codec.binary.StringUtils;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
+// unit test should be enough to secure code base against regression
 public class OldProduct {
 
     UUID serialNumber = UUID.randomUUID();
 
     BigDecimal price;
+
+    // not descriptive variable
     private String desc;
 
+    // not descriptive variable
     String longDesc;
-
+    // replace it with prymitive type release problem with null-checkes
     Integer counter;
 
     void decrementCounter() {
+        // nested if,  invert logic and if condition is not fullfiled throw new exception
         if (price != null && price.signum() > 0) {
-
+            // incorrect formatting
             if
             (counter == null) {
                 throw new IllegalStateException("null counter");
@@ -31,7 +38,8 @@ public class OldProduct {
         }
 
     }
-
+    // public contract could be higher
+    // number of variable, with same type can be error-prone, it would be worth to consider builder
     public OldProduct(BigDecimal price, String desc, String longDesc, Integer counter) {
         this.price = price;
         this.desc = desc;
@@ -70,6 +78,7 @@ public class OldProduct {
     }
 
     void replaceCharFromDesc(String charToReplace, String replaceWith) {
+        // null check and isEmpty can be replaced with some library function or just house-in made;
         if (longDesc == null || longDesc.isEmpty() ||
 
                 desc == null || desc.isEmpty()) {
