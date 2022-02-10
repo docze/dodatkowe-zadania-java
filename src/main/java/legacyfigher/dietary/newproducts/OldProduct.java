@@ -5,7 +5,8 @@ import java.util.UUID;
 
 
 /*
-   unit test should be enough to secure code base against regression
+   unit test should be enough to secure code base against regression,
+   but
    it seems that product is from more than one context:
    * Catalog context
    * Storage context
@@ -49,7 +50,6 @@ public class OldProduct {
             throw new IllegalStateException("Invalid price");
 
         }
-
     }
 
     // maybe method should be synchronized in case of parallel using
