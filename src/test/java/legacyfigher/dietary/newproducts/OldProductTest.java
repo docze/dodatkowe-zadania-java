@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 
 class OldProductTest {
 
-
     @Test
     void shouldBeIncreasedCounter() {
         // given
@@ -17,7 +16,7 @@ class OldProductTest {
         oldProduct.incrementCounter();
 
         //then
-        Assertions.assertEquals(1, oldProduct.counter);
+        Assertions.assertEquals(1, oldProduct.counter.value());
     }
 
     @Test
@@ -28,7 +27,7 @@ class OldProductTest {
         oldProduct.decrementCounter();
 
         //then
-        Assertions.assertEquals(0, oldProduct.counter);
+        Assertions.assertEquals(0, oldProduct.counter.value());
     }
 
     @Test
@@ -60,12 +59,12 @@ class OldProductTest {
         final OldProduct oldProduct = new OldProduct(new BigDecimal(1), "desc", "longDesc", 1);
 
         // when
-        oldProduct.replaceCharFromDesc("esc", "");
+        oldProduct.replaceCharFromDescription("esc", "");
 
         // then
 
-        Assertions.assertEquals("longD", oldProduct.longDesc);
-        Assertions.assertEquals("d *** longD", oldProduct.formatDesc());
+        Assertions.assertEquals("longD", oldProduct.description.getLongDescription());
+        Assertions.assertEquals("d *** longD", oldProduct.formatDescription());
     }
 
 
@@ -76,9 +75,9 @@ class OldProductTest {
         final OldProduct oldProduct = new OldProduct(new BigDecimal(1), "desc", "longDesc", 1);
 
         // when
-        oldProduct.replaceCharFromDesc("desc", "");
+        oldProduct.replaceCharFromDescription("desc", "");
 
         // then
-        Assertions.assertEquals("", oldProduct.formatDesc());
+        Assertions.assertEquals("", oldProduct.formatDescription());
     }
 }
